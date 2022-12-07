@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Session</title>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
+
+    </head>
+
+    <body>
+        <h3 style='color: #ccc;font-size: 30px;'>No message yet..</h3>
+        <div id="message_holder">
+
+        </div>
+
+        <form action="" method="POST">
+            <input class="username" name="username" placeholder="UserName" />
+            <input class="message" name="message" placeholder="Message" />
+            <input type="submit" />
+        </form>
+
+
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
+
+
+        <script type="text/javascript">
+            // connecting the both users to the same URL ( domain + port number)
+            var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+
+            // When connecting
+            socket.on('connect', function () {
+                socket.emit('my event', {
+                    data: 'User Connected'
+                })
+                var form = $('form').on('submit', function (e) {
+                    // prevent the default way that fomr send to server
+                    e.preventDefault()
+
+                    // take the usernmae and the message from the fields
+
+                    let user_name = $('input.username').val()
+                    let message = $('input.message').val()
+
+                    // send the message
+
+                    socket.emit('my event', {
+                        user_name: user_name, message: message
+                    })
+
+                    $('input.message').val('').focus()
+                })
+            })
+
+            // render my response in my html window
+            socket.on('message', function (msg) {
+                console.log(msg)
+                if (typeof msg.user_name !== 'undefined') {
+                    $('h3').remove()
+                    $('#message_holder').append($('<p>').text(msg));
+                }
+            })
+
+        </script>
+
+    </body>
+
+</html>

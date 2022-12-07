@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %} Comments {% endblock %}
+{% block content %}
+{% for com in comments %}
+
+    
+    <div style="padding: 10px; background-color: {{ loop.cycle('#eee', '#e6f9ff' ) }}; margin: 20px">
+        {{ com | upper }}
+        {{ loop.index }}
+
+    </div>
+    
+    
+
+{% endfor %}
+
+
+<div style="padding: 10px; background-color:'#eee'; margin: 20px">    
+    {{ comments | join('|') }}
+</div>
+
+<hr>
+        <div>
+            {{ "<h1>COMMENTS</h1>" | safe }}
+            <p>{{ comments | join(" <hr> ") | safe }}</p>
+        </div>
+{% endblock %}
+
+
+
+
+
+

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+
+{% block title %} Index {% endblock %}
+
+{% block content %}
+
+
+
+{% if session.name %}
+You are Register : {{ session.name }}
+{% else %}
+You are not Register. <a href="/login">login</a>.
+{% endif %}
+
+
+
+<div class="container text-center">
+    <div classs="col">
+        <div calss="row">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Message"
+                    aria-label="Recipient's username" id="msg" >
+                <button class="btn btn-outline-secondary" type="button" id="sendBtn">Send</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class='col'>
+            <h3>Test</h3>
+            <form>
+                <a href=# id=test><button class='btn btn-default'>Test</button></a>
+            </form>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock %}

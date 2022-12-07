@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{% block title %} Login {% endblock %}
+
+{% block content %}
+
+<div class="container center-text">
+	<div class="row">
+		<div class="col">
+			<h1> REGISTER </h1>
+			<form action="/login" method="POST">
+				<div class="mb-3">
+					<label for="exampleInputEmail1" class="form-label">Name</label>
+					<input name="name" type="text" class="form-control" id="name" autocomplete="off">
+					<div id="emailHelp" class="form-text">This will be your username in the chat room</div>
+				</div>
+				<button type="submit" class="btn btn-primary">SendName</button>
+			</form>
+
+		</div>
+	</div>
+</div>
+
+
+
+
+{% endblock %}

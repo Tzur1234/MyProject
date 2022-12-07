@@ -1,0 +1,46 @@
+**socket**
+end point of communication of two devices.
+socket is always required when two different programs run on a different network
+
+
+link for youtube explanation: 
+https://www.youtube.com/watch?v=-utm73RxNo4
+
+Examle ? 
+two phones chat with each other. each phone is a socket(end point of communication).
+Each pone has IP adrees , and many ports.
+Each socket in each phone is order by sending info to the other phone.
+Socket just send the info to the program. it doesn't do anything excpet that.
+
+Why we need Socket ? 
+any time you want to create a Network application
+you have to use socket.
+
+What is a Socket Adress ?
+IP adress... (122.45.21.3)
+PORT adress... (5000)
+Socket Adress ... (122.45.21.3 : 80)
+
+( Those are needed when communicating with other devices)
+
+
+How many types od Sockets ? 
+-- STREAM socket -- ( Realiable and Error free services)
+-- Datagram socket -- (Enreliable and best effort service)
+
+*How to creat a scoket object  ? 
+
+
+
+
+
+############################################################
+
+
+
+
+
+
+
+
+
