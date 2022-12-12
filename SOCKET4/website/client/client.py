@@ -26,6 +26,7 @@ class Client:
         receive_thread.start()
 
         self.send_message(name)
+        self.name = name
         self.lock = Lock()
 
     def receive_messages(self):
@@ -95,26 +96,12 @@ class Client:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     def get_messages(self):
         """
         :returns a list of str messages
         :return: list[str]
         """
-        messages_copy = self.messages[:]
+        messages_copy = self.messages.copy()
 
         # make sure memory is safe to access
         self.lock.acquire()
@@ -125,3 +112,4 @@ class Client:
     
     def disconnect(self):
         self.send_message("{quit}")
+

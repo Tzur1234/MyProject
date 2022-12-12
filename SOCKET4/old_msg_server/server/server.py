@@ -1,14 +1,14 @@
 from socket import AF_INET, socket, SOCK_STREAM
-from threading import Thread
-import time
 from person import Person
+from threading import Thread
+import datetime
 
 # GLOBAL CONSTANTS
 HOST = 'localhost'
 PORT = 5500
 ADDR = (HOST, PORT)
 MAX_CONNETIONS = 10
-BUFSIZ = 512
+# BUFSIZ = 512
 HEADER_LENGTH = 10
 
 # GLOBAL VARIABLES
@@ -24,17 +24,18 @@ def broadcast(msg, name, obj):
     :param name: str
     :return:
     """
+    
     username = f'{name:<{HEADER_LENGTH}}'.encode('utf-8')
 
     for person in persons:
         
-        if obj != person:
+        # if obj != person:
                         
-            client = person.client
-            try:
-                client.send(username + msg)
-            except Exception as e:
-                print("[EXCEPTION]", e)
+        client = person.client
+        try:
+            client.send(username + msg)
+        except Exception as e:
+            print("[EXCEPTIONtt]", e)
 
 
 def client_communication(person):
@@ -83,8 +84,8 @@ def wait_for_connection():
             client, addr = SERVER.accept()  # wait for any new connections
             person = Person(addr, client)  # create new person for connection
             persons.append(person)
-
-            print(f"[CONNECTION] {addr[0]} : {addr[1]} connected to the server at {time.time()}")
+            print(person)
+            print(f"[CONNECTION] {addr[0]} : {addr[1]} connected to the server")
             Thread(target=client_communication, args=(person,)).start()
 
         except Exception as e:

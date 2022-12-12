@@ -8,7 +8,7 @@ class Client:
     for communication with server
     """
     HOST = "localhost"
-    PORT = 5500
+    PORT = 5501
     ADDR = (HOST, PORT)
     # BUFSIZ = 512
     HEADER_LENGTH = 10
@@ -91,20 +91,6 @@ class Client:
         msg = self.client_socket.recv(msg_lenght).decode('utf-8')
 
         return username + msg  # return "tzur       : hello"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
