@@ -24,7 +24,34 @@ Both servers,  web server (**main.py**) and main server (**server.py**) <ins>use
 
 <ins>server.py</ins> uses the **Person** object, each person object stores the users’ socket, the name of the user and its IP address. Meanwhile, <ins> main.py </ins> uses the **Client** object to also store the user’s socket. Both sockets on each server represent the same users, but on the other side of the connection.
 
-![Screenshot](3232.JPG)
 ![alt text](https://github.com/Tzur1234/MyProject/blob/main/TEST/test.py/3232.JPG)
+
+
+The main functions used for sending information between servers and users are:
+**recv()
+send()**
+
+Both are built-in functions from the socket object. As we have learned on the course, information is transferred through the network in “small-pieces”, in other words - bytes. In relation to my app, before a message is sent, it is first disassembled to small pieces, or, bytes. Then these pieces are sent in small packages. It is much more reliable to transfer the data in small pieces than in larger pieces.
+
+Beyond learning about those two functions, I have also learned about the standard practice of sending each message with a “header”. A header is a fixed number of bytes concatenated to the message. In the beginning, it contains information about the length of the message. For example, if we want to send the message ‘hello’. 
+The ‘hello’ message has five characters, hence the first 10 characters at the beginning of the message are going to be the number 5 and the other part of the message is the message itself. By using headers, we can have a better view of received messages and know if all the parts were successfully received. 
+
+In both servers, **server.py and client.py** I wrote auxiliary functions such as <ins>**conver_to_b and conver_to_msg**</ins> , those make the translating processes, translate from byte to string message or visa versa more efficiently.
+By the way - recv() and send() both accept and return only bytesand therefore I had to write **conver_to_b() and conver_to_msg()**
+
+![alt text](https://github.com/Tzur1234/MyProject/blob/main/TEST/test.py/111.JPG)
+![alt text](https://github.com/Tzur1234/MyProject/blob/main/TEST/test.py/222.JPG)
+![alt text](https://github.com/Tzur1234/MyProject/blob/main/TEST/test.py/333.JPG)
+![alt text](https://github.com/Tzur1234/MyProject/blob/main/TEST/test.py/444.JPG)
+
+
+
+
+
+
+
+
+
+
 
 
