@@ -25,5 +25,6 @@ Both servers,  web server (**main.py**) and main server (**server.py**) <ins>use
 <ins>server.py</ins> uses the **Person** object, each person object stores the users’ socket, the name of the user and its IP address. Meanwhile, <ins> main.py </ins> uses the **Client** object to also store the user’s socket. Both sockets on each server represent the same users, but on the other side of the connection.
 
 ![Screenshot](3232.JPG)
+![alt text](https://github.com/[Tzur1234]/[MyProject]/blob/[main]/image.jpg?raw=true)
 
 
